@@ -11,12 +11,12 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>SampleDemo</display-name>
-    <servlet-name>SampleDemo</servlet-name>
-    <servlet-class>com.bridgelabz.bankApp.SampleDemo</servlet-class>
+    <display-name>Demo</display-name>
+    <servlet-name>Demo</servlet-name>
+    <servlet-class>com.bridgelabz.bankApp.Demo</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>SampleDemo</servlet-name>
-    <url-pattern>/SampleDemo</url-pattern>
+    <servlet-name>Demo</servlet-name>
+    <url-pattern>/Demo</url-pattern>
   </servlet-mapping>
 </web-app>

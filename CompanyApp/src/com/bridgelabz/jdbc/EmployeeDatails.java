@@ -9,10 +9,7 @@ import java.sql.Statement;
 public class EmployeeDatails {
 
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		
-=======
->>>>>>> 3caea80ff39a315c30c430832ffb24e8c14c557d
+
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
