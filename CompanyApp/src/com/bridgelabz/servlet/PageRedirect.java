@@ -13,7 +13,7 @@ public class PageRedirect extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String site = new String("http://www.google.com");
+		String site = new String("http://www.gmail.com");
 		response.setStatus(response.SC_MOVED_PERMANENTLY);
 		response.setHeader("Location", site);
 	}

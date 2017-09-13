@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+form {
+	margin: 0px 10px;
+}
+
+body {
+	background: cyan;
+}
+
+.container {
+	max-width: 360px;
+}
+
+.divider {
+	margin-top: 20px;
+	margin-bottom: 5px;
+}

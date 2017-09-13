@@ -24,6 +24,7 @@ public class AutoRefresh extends HttpServlet {
 			am_pm = "AM";
 		else
 			am_pm = "PM";
+		
 		String htmlRes = "<html>" + " <body>" +"<center>"+
 			
 				
