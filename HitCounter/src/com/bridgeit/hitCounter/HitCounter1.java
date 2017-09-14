@@ -1,4 +1,4 @@
-package com.bridgelabz.servlet;
+package com.bridgeit.hitCounter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +20,7 @@ public class HitCounter1 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		hitCount++;
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();

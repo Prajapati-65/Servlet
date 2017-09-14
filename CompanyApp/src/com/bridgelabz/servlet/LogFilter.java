@@ -11,7 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 public class LogFilter implements Filter {
-
+	
 	public void init(FilterConfig config) throws ServletException {
 		String testParam = config.getInitParameter("test-param");
 		System.out.println("Test Param : " + testParam);

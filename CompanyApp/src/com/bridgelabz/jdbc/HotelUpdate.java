@@ -17,7 +17,6 @@ public class HotelUpdate {
 			DriverManager.registerDriver(driver);
 			String dburl = "jdbc:mysql://localhost:3306/companyApp?user=root&password=password";
 			con = DriverManager.getConnection(dburl);
-			// String query = "update hotel set type = 'veg' where regno = 3 ";
 			String query = "insert into hotel values (1,'Taj','Mumbai','nonveg')";
 			stmt = con.createStatement();
 			int insert = stmt.executeUpdate(query);

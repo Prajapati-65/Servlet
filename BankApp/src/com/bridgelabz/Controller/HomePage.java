@@ -1,4 +1,4 @@
-package com.bridgelabz.Controller;
+package com.bridgelabz.Basic;
 
 public class HomePage  {
 

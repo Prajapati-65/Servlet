@@ -1,4 +1,4 @@
-package com.bridgelabz.servlet;
+package com.bridgeit.hitCounter;
 
 import java.io.IOException;
 import java.io.PrintWriter;

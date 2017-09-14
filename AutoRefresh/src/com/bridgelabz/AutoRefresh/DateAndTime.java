@@ -1,4 +1,4 @@
-package com.bridgelabz.servlet;
+package com.bridgelabz.AutoRefresh;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,7 +26,8 @@ public class DateAndTime extends HttpServlet{
 						+" </h2> "
 						+" </body> "
 						+" </html> ";
-	
+		
+		resp.setIntHeader("Refresh", 3);
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		out.print(htmlRes);

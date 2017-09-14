@@ -29,4 +29,14 @@
     <servlet-name>ReadCookies</servlet-name>
     <url-pattern>/ReadCookies</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteCookies</display-name>
+    <servlet-name>DeleteCookies</servlet-name>
+    <servlet-class>com.bridgeit.Cookies.DeleteCookies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCookies</servlet-name>
+    <url-pattern>/DeleteCookies</url-pattern>
+  </servlet-mapping>
 </web-app>
