@@ -1,5 +1,7 @@
-package com.bridgelabz.Basic;
+package com.bridgelabz.Controller;
 
-public class HomePage  {
+import javax.servlet.http.HttpServlet;
 
+public class HomePage extends HttpServlet {
+	
 }

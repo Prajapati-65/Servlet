@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.jdbc.Driver;
+
 public class EmployeeDatails {
 
 	public static void main(String[] args) {
@@ -14,7 +16,10 @@ public class EmployeeDatails {
 		Statement stmt = null;
 		ResultSet rs = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			//Class.forName("com.mysql.jdbc.Driver");
+			
+			 java.sql.Driver dri =new Driver();
+			 DriverManager.registerDriver(dri);
 			String dburl = "jdbc:mysql://localhost:3306/companyApp?user=root&password=password";
 			con = DriverManager.getConnection(dburl);
 			String query = "select * from company";
@@ -29,7 +34,7 @@ public class EmployeeDatails {
 				System.out.println("Last name : " + lName);
 				System.out.println();
 			}
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			try {

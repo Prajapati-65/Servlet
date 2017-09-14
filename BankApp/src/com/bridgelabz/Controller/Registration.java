@@ -25,6 +25,7 @@ public class Registration extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		String title = "Welcome to Bridgelabz";
 		out.println(title);
+		
 		Connection con = null;
 		PreparedStatement pstmt =null;
 		try {

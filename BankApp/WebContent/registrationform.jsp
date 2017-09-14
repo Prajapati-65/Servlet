@@ -1,6 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registraion page</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -47,7 +50,6 @@ h2 {
 .right {
 	float: right;
 }
-
 </style>
 </head>
 <body>
@@ -55,7 +57,7 @@ h2 {
 		<div class="row"">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="post" action="Registration" role="form">
+					<form method="post" action="registrationform.jsp" role="form">
 						<div class="form-group">
 							<h2>Create an Account</h2>
 						</div>
@@ -66,8 +68,8 @@ h2 {
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="email">Enter the email</label>
-							<input id="email" name="email" type="email" placeholder="Enter the email"
-								class="form-control">
+							<input id="email" name="email" type="email"
+								placeholder="Enter the email" class="form-control">
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="email">Enter the
@@ -100,6 +102,7 @@ h2 {
 			</div>
 		</div>
 	</div>
+
 
 </body>
 </html>

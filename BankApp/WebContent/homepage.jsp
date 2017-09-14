@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -25,21 +27,23 @@ form {
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-primary"
-					style="padding-bottom: 360px;">
-					<div class="well well-sm" style="background-color: skyblue" align="right">
-						<button id="logout" type="logout" class="btn btn-success">Logout</button>
+				<div class="panel panel-primary" style="padding-bottom: 360px;">
+					<div class="well well-sm" style="background-color: skyblue;"
+						align="right">
+						<button id="logout" type="logout" class="btn btn-success">
+							Logout</button>
 					</div>
 					<div class="btn-group btn-group-justified">
-						<a href="#" class="btn btn-primary">Mumbai</a> <a href="#"
+						<a href="#"  class="btn btn-primary">Mumbai</a> <a href="#"
 							class="btn btn-primary">Delhi</a> <a href="#"
 							class="btn btn-primary">Bangalore</a>
 					</div>
 					<div>
 						<button type="button" class="btn btn-info btn-lg"
-							data-toggle="modal" data-target="#myModal" style="margin-bottom: 5px; margin-left: 5px;">+ Add
-						</button>
+							data-toggle="modal" data-target="#myModal"
+							style="margin-top: 313px; margin-left: 5px; float:right" >+ Add</button>
 					</div>
+					
 					<div class="modal fade" id="myModal" role="dialog">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -68,9 +72,15 @@ form {
 											placeholder="Enter the email">
 									</div>
 									<div class="form-group">
-										<label class="control-label" for="email">Enter the
-											city</label> <input id="city" type="city"
-											placeholder="Enter the city" class="form-control">
+										<label class="control-label" for="email">Select any
+											city</label>
+										<div>
+											<select class="form-control">
+												<option value="city" name="city">Mumbai</option>
+												<option value="city" name="city">Delhi</option>
+												<option value="city" name="city">Bangalore</option>
+											</select>
+										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="acconut">Enter
@@ -94,5 +104,10 @@ form {
 			</div>
 		</div>
 	</div>
+
+
+
+
+
 </body>
 </html>

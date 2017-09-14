@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>BankApp</display-name>
   <welcome-file-list>
-    <welcome-file>login.html</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
     <welcome-file>registrationform.html</welcome-file>
     <welcome-file>addaccount.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -10,32 +10,22 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>Registration</display-name>
-    <servlet-name>Registration</servlet-name>
-    <servlet-class>com.bridgelabz.bankApp.Registration</servlet-class>
+    <display-name>login</display-name>
+    <servlet-name>login</servlet-name>
+    <jsp-file>/login.jsp</jsp-file>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Registration</servlet-name>
-    <url-pattern>/Registration</url-pattern>
+    <servlet-name>login</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
-    <servlet-class>com.bridgelabz.bankApp.Login</servlet-class>
+    <servlet-class>com.bridgelabz.Controller.Login</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>AddAccount</display-name>
-    <servlet-name>AddAccount</servlet-name>
-    <servlet-class>com.bridgelabz.Controller.AddAccount</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddAccount</servlet-name>
-    <url-pattern>/AddAccount</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -17,7 +17,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FormCookies</servlet-name>
-    <url-pattern>/FormCookies</url-pattern>
+    <url-pattern>/formCookies</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -27,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ReadCookies</servlet-name>
-    <url-pattern>/ReadCookies</url-pattern>
+    <url-pattern>/readCookies</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
