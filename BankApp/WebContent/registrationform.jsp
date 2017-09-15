@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registraion page</title>
+<title>Registration page</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -57,7 +57,7 @@ h2 {
 		<div class="row"">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="post" action="registrationform.jsp" role="form">
+					<form method="post" action="Registration" role="form" name="submit">
 						<div class="form-group">
 							<h2>Create an Account</h2>
 						</div>
@@ -73,17 +73,17 @@ h2 {
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="email">Enter the
-								password</label> <input id="email" name="password" type="password"
+								password</label> <input id="password" name="password" type="password"
 								placeholder="Enter the password" class="form-control">
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="password">Confirm
-								password</label> <input id="password" name="password" type="password"
+								password</label> <input id="confirmpassword" name="confirmpassword" type="password"
 								placeholder="Confirm password" class="form-control">
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="number">Enter mobile
-								number</label> <input id="number" name="number" type="text"
+								number</label> <input id="mobilenumber" name="mobilenumber" type="text"
 								placeholder="Enter mobile number" class="form-control">
 						</div>
 

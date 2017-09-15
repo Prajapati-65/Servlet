@@ -11,32 +11,24 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-
-form {
-	margin: 0px 15px;
-}
-
-.divider {
-	margin-top: 20px;
-	margin-bottom: 5px;
-}
-</style>
+<style type="text/css" href="css/homepage.css"> </style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panel panel-primary" style="padding-bottom: 360px;">
-					<div class="well well-sm" style="background-color: skyblue;"
-						align="right">
-						<button id="logout" type="logout" class="btn btn-success">
-							Logout</button>
+				
+				
+					<div class="well well-sm" style="background-color: skyblue;" align="right">
+						<button id="logout" type="logout" class="btn btn-success">Logout</button>
 					</div>
+					
+					
 					<div class="btn-group btn-group-justified">
-						<a href="#"  class="btn btn-primary">Mumbai</a> <a href="#"
-							class="btn btn-primary">Delhi</a> <a href="#"
-							class="btn btn-primary">Bangalore</a>
+						<a href="#"  class="btn btn-primary">Mumbai</a> 
+						<a href="#" class="btn btn-primary">Delhi</a>
+						 <a href="#" class="btn btn-primary">Bangalore</a>
 					</div>
 					<div>
 						<button type="button" class="btn btn-info btn-lg"
@@ -55,24 +47,24 @@ form {
 									<a hreflang="form.html"></a>
 								</div>
 
-								<form method="POST" action="#" role="form">
+								<form method="POST" action="HomePage" role="form">
 									<div class="form-group">
-										<label class="control-label" for="name">Enter the id</label> <input
-											id="id" type="text" class="form-control"
+										<label class="control-label" for="id">Enter the id</label> 
+										<input id="id" name="id" type="text" class="form-control"
 											placeholder="Enter the id">
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="email">Enter the
-											name</label> <input id="name" type="text"
+											name</label> <input id="name" name="name" type="text"
 											placeholder="Enter the name" class="form-control">
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="name">Enter the
-											email</label> <input id="email" type="text" class="form-control"
+											email</label> <input id="email" name="email" type="email" class="form-control"
 											placeholder="Enter the email">
 									</div>
 									<div class="form-group">
-										<label class="control-label" for="email">Select any
+										<label class="control-label" for="city">Select any
 											city</label>
 										<div>
 											<select class="form-control">
@@ -84,15 +76,15 @@ form {
 									</div>
 									<div class="form-group">
 										<label class="control-label" for="acconut">Enter
-											account number</label> <input id="acconut" type="acconut"
+											account number</label> <input id="accountnumber" name="accountnumber" type="text"
 											placeholder="Enter account number" class="form-control">
 									</div>
 
 									<div class="form-group">
-										<button id="submit" type="submit" class="btn btn-success">Add</button>
+										<button id="submit" type="submit" name="submit" class="btn btn-success">Add</button>
 
 
-										<button id="submit" type="button" class="btn btn-success"
+										<button id="close" type="button" name="close" class="btn btn-success"
 											style="margin-left: 430px;" data-dismiss="modal">Close</button>
 									</div>
 								</form>

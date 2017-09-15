@@ -1,20 +1,34 @@
 package com.bridgelabz.Model;
 
-public class User {
+public class UserBean {
 
-	private int id, accountnumber, mobilenumber;
-	private String name, email, city, password;
+	private int id, accountnumber;
+	private String name, email, city, password,confirmpassword,mobilenumber;
 
-	public User(int id, int accountnumber, int mobilenumber, String name, String email, String city, String password) {
-		this.id = id;
-		this.accountnumber=accountnumber;
-		this.mobilenumber=mobilenumber;
-		this.name=name;
-		this.email=email;
-		this.city=city;
-		this.password=password;
+	public String getConfirmpassword() {
+		return confirmpassword;
+	}
+	
+	public void setConfirmpassword(String confirmpassword) {
+		this.confirmpassword = confirmpassword;
 	}
 
+
+	public String getMobilenumber() {
+		return mobilenumber;
+	}
+
+
+	public void setMobilenumber(String mobilenumber) {
+		this.mobilenumber = mobilenumber;
+	}
+	
+	public String toString()
+	{
+		return "";
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -31,13 +45,6 @@ public class User {
 		this.accountnumber = accountnumber;
 	}
 
-	public int getMobilenumber() {
-		return mobilenumber;
-	}
-
-	public void setMobilenumber(int mobilenumber) {
-		this.mobilenumber = mobilenumber;
-	}
 
 	public String getName() {
 		return name;

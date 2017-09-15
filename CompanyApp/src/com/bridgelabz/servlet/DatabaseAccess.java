@@ -23,6 +23,7 @@ public class DatabaseAccess extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		String title = "Database Result found :";
 		out.print(title);
+		
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rs = null;
