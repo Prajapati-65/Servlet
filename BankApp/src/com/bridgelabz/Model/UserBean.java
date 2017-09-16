@@ -23,11 +23,6 @@ public class UserBean {
 		this.mobilenumber = mobilenumber;
 	}
 	
-	public String toString()
-	{
-		return "";
-	}
-	
 	
 	public int getId() {
 		return id;
@@ -76,6 +71,13 @@ public class UserBean {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "UserBean [id=" + id + ", accountnumber=" + accountnumber + ", name=" + name + ", email=" + email
+				+ ", city=" + city + ", password=" + password + ", confirmpassword=" + confirmpassword
+				+ ", mobilenumber=" + mobilenumber + "]";
 	}
 	
 	

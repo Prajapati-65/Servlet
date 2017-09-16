@@ -29,16 +29,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>registrationform</display-name>
-    <servlet-name>registrationform</servlet-name>
-    <jsp-file>/registrationform.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>registrationform</servlet-name>
-    <url-pattern>/registrationform</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Registration</display-name>
     <servlet-name>Registration</servlet-name>
     <servlet-class>com.bridgelabz.Controller.Registration</servlet-class>
@@ -46,16 +36,6 @@
   <servlet-mapping>
     <servlet-name>Registration</servlet-name>
     <url-pattern>/Registration</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>homepage</display-name>
-    <servlet-name>homepage</servlet-name>
-    <jsp-file>/homepage.jsp</jsp-file>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>homepage</servlet-name>
-    <url-pattern>/homepage</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -76,5 +56,45 @@
   <servlet-mapping>
     <servlet-name>DeleteAccount</servlet-name>
     <url-pattern>/DeleteAccount</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddAccount</display-name>
+    <servlet-name>AddAccount</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.AddAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAccount</servlet-name>
+    <url-pattern>/AddAccount</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddAccountDetails</display-name>
+    <servlet-name>AddAccountDetails</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.AddAccountDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddAccountDetails</servlet-name>
+    <url-pattern>/AddAccountDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>homepage</display-name>
+    <servlet-name>homepage</servlet-name>
+    <jsp-file>/homepage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>homepage</servlet-name>
+    <url-pattern>/homepage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutAccount</display-name>
+    <servlet-name>LogoutAccount</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.LogoutAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutAccount</servlet-name>
+    <url-pattern>/LogoutAccount</url-pattern>
   </servlet-mapping>
 </web-app>

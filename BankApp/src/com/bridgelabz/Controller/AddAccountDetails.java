@@ -2,39 +2,39 @@ package com.bridgelabz.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.bridgelabz.BankDAO.BankDAO;
 import com.bridgelabz.Model.UserBean;
 
-public class Login extends HttpServlet {
+public class AddAccountDetails extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
+		String title = ("<br>" + "Your account is successful" + "</br>");
+		out.println(title);
+		String id = req.getParameter("id");
+		int accId = Integer.parseInt(id);
+		String name = req.getParameter("name");
 		String email = req.getParameter("email");
-		String password = req.getParameter("password");
+		String city = req.getParameter("city");
+		String number = req.getParameter("accountnumber");
+		int accountNumber = Integer.parseInt(number);
 		UserBean userBean = new UserBean();
+		userBean.setId(accId);
+		userBean.setName(name);
 		userBean.setEmail(email);
-		userBean.setPassword(password);
-		BankDAO bankdao = new BankDAO();
-		String name = bankdao.loginUser(email, password);
-		System.out.println(name);
-		if (name != "false") 
-		{
-			HttpSession session = req.getSession();
-			session.setAttribute("name", name);
-			resp.sendRedirect("homepage.jsp");
-		} 
-		else {
-			resp.sendRedirect("login.jsp");
-		}
+		userBean.setCity(city);
+		userBean.setAccountnumber(accountNumber);
+
+		BankDAO.saveAccountData(userBean);
+
 	}
 }

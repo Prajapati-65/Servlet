@@ -105,11 +105,10 @@
 											placeholder="Enter your password" class="form-control">
 									</div>
 									<div class="form-group">
-										<button id="submit" type="submit"
-											class="btn btn-success btn-block">Sign in.</button>
+										<button id="submit" type="submit" class="btn btn-success btn-block">Sign in.</button>
 									</div>
 									<p>
-										. <a href="registrationform.jsp">Forget your password?</a>
+										. <a href="login.jsp">Forget your password?</a>
 									</p>
 									Don't have an account? <a href="registrationform.jsp">Sign
 										up here</a>
