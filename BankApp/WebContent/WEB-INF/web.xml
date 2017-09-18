@@ -97,4 +97,34 @@
     <servlet-name>LogoutAccount</servlet-name>
     <url-pattern>/LogoutAccount</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>citydetails</display-name>
+    <servlet-name>citydetails</servlet-name>
+    <jsp-file>/citydetails.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>citydetails</servlet-name>
+    <url-pattern>/citydetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AccountView</display-name>
+    <servlet-name>AccountView</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.AccountView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccountView</servlet-name>
+    <url-pattern>/AccountView</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateAccount</display-name>
+    <servlet-name>UpdateAccount</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.UpdateAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateAccount</servlet-name>
+    <url-pattern>/UpdateAccount</url-pattern>
+  </servlet-mapping>
 </web-app>

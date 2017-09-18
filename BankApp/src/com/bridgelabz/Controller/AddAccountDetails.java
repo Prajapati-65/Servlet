@@ -33,8 +33,13 @@ public class AddAccountDetails extends HttpServlet {
 		userBean.setEmail(email);
 		userBean.setCity(city);
 		userBean.setAccountnumber(accountNumber);
+		
+		if (BankDAO.saveAccountData(userBean) > 0) {
+			out.print("Record Saved Successfully");
+			resp.sendRedirect("homepage.jsp");
 
-		BankDAO.saveAccountData(userBean);
-
+		} else {
+			out.println("Sorry unable to save record");
+		}
 	}
 }

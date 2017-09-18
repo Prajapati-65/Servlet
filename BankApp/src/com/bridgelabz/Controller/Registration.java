@@ -30,9 +30,16 @@ public class Registration extends HttpServlet {
 		userBean.setPassword(password);
 		userBean.setConfirmpassword(confirmpassword);
 		userBean.setMobilenumber(number);
-		
-		BankDAO.saveRegistration(userBean);
-
+		if(BankDAO.saveRegistration(userBean) > 0)
+		{	
+			out.print("<p>Record Saved Successfully</p>");
+			req.getRequestDispatcher("registrationform.jsp").include(req, resp);		
+		}
+		else
+		{
+			out.println("Sorry unable to save record");
+		}	
+		resp.sendRedirect("login.jsp");
 	}
 
 }

@@ -7,39 +7,36 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/NewFile.css">
+<link rel="stylesheet" href="css/addAccount.css">
+<link rel="stylesheet" href="css/homepage.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<style>
-form {
-	margin: 0px 15px;
-}
-
-.divider {
-	margin-top: 20px;
-	margin-bottom: 5px;
-}
-</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panel panel-primary" style="padding-bottom: 500px;">
-					<div class="well well-sm" style="background-color: skyblue;">
-						<label><a><%=session.getAttribute("name")%></a></label>
-						<button id="button" href="LogoutAccount" style="float: right;margin-top: -5px;" class="btn btn-success btn-md">Logout</button>
+
+					<div class="well" style="background-color: skyblue;">
+						<label><a><%=session.getAttribute("name")%></a></label> <a
+							id="button" href="LogoutAccount"
+							style="float: right; margin-top: -7px;"
+							class="btn btn-success btn-md">Logout</a>
 					</div>
 
 					<div class="btn-group-vertical col-sm-3">
-						<button type="button" class="btn btn-primary btn-lg">Bangalore</button>
+						<button type="button" class="btn btn-primary btn-lg"
+							onclick="displayCityData('Banglore')">Bangalore</button>
 						<br>
-						<button type="button" class="btn btn-primary btn-lg">Mumbai</button>
+						<button type="button" class="btn btn-primary btn-lg"
+							onclick="displayCityData('Mumbai')">Mumbai</button>
 						<br>
-						<button type="button" class="btn btn-primary btn-lg">Delhi</button>
+						<button type="button" class="btn btn-primary btn-lg"
+							onclick="displayCityData('Delhi')">Delhi</button>
 					</div>
 
 					<div>
@@ -55,10 +52,6 @@ form {
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 									<h4 class="modal-title">Add Account</h4>
 								</div>
-								<div class="modal-body">
-									<a hreflang="form.html"></a>
-								</div>
-
 								<form method="POST" action="AddAccountDetails" role="form">
 									<div class="form-group">
 										<label class="control-label" for="id">Enter the id</label> <input
@@ -71,7 +64,7 @@ form {
 											placeholder="Enter the name" class="form-control">
 									</div>
 									<div class="form-group">
-										<label class="control-label" for="name">E;nter the
+										<label class="control-label" for="name">Enter the
 											email</label> <input id="email" name="email" type="email"
 											class="form-control" placeholder="Enter the email">
 									</div>
@@ -100,17 +93,74 @@ form {
 
 
 										<button id="close" type="button" name="close"
-											class="btn btn-success om" 
-											data-dismiss="modal">Close</button>
+											class="btn btn-success om" data-dismiss="modal">Close</button>
 									</div>
 								</form>
 
 							</div>
 						</div>
 					</div>
+
+					<div class="modal fade" id="cityModal" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header" id="city-title">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title"></h4>
+								</div>
+								<div class="modal-body" id="details-table"></div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var city = "";
+			console.log("Starting javascript");
+		});
+
+		function displayCityData(city) {
+			console.log("inside javascript");
+			$.ajax({
+				type : 'post',
+				url : "AccountView",
+				data : {
+					city : city
+				},
+				success : function(result) {
+					console.log("ajax success");
+					console.log(result);
+					var data = "<table class='table table-striped'>"
+							+ "<thead >" + "<tr>" + "<th>Id</th>"
+							+ "<th>Name</th>" + "<th>Email</th>"
+							+ "<th>City</th>" + "<th>AccountNumber</th>"
+							+ "</tr>" + "</thead>" + "<tbody>";
+							
+					for ( var i in result) {
+						data = data + "<tr><td>" 
+								+ result[i].id + "</td><td>"
+								+ result[i].name + "</td><td>"
+								+ result[i].email + "</td><td>"
+								+ result[i].city + "</td><td>"
+								+ result[i].accountnumber + "</td></tr>";
+					}
+					data = data + "</tbody>" + "</table>"
+					$('#details-table').html(data);
+					$('#body-of-modal').html(result);
+					$('#cityModal').modal('show');
+				}
+			});
+		}
+	</script>
 </body>
 </html>

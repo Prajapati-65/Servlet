@@ -57,7 +57,7 @@ h2 {
 		<div class="row"">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="post" action="Registration" role="form" name="submit">
+					<form method="post" action="Registration"  name="submit">
 						<div class="form-group">
 							<h2>Create an Account</h2>
 						</div>
@@ -96,7 +96,7 @@ h2 {
 							that you have read and agree to our <a href="#">Terms of Use</a>
 							and our <a href="#">Privacy Policy</a>.
 						</p>
-						Create an account? <a href="#">Sign in</a>
+						Create an account? <a href="login.jsp">Sign in</a>
 					</form>
 				</div>
 			</div>

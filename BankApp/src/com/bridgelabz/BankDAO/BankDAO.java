@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tomcat.util.buf.UEncoder;
+
 import com.bridgelabz.Model.UserBean;
 
 public class BankDAO {
@@ -33,35 +35,13 @@ public class BankDAO {
 			pstmt.setString(2, password);
 			ResultSet resultSet = pstmt.executeQuery();
 			System.out.println("Execute Statement :");
-				if (resultSet.next()) {
-					return resultSet.getString("name");
-				}
-			} 
-			catch (Exception e) {
-				e.printStackTrace();
+			if (resultSet.next()) {
+				return resultSet.getString("name");
 			}
-		return "false";
-	}
-
-	public boolean loginUser(UserBean userbean) throws ClassNotFoundException, SQLException {
-		boolean status = false;
-		Connection connection = null;
-		try {
-			connection = BankDAO.getConnection();
-			PreparedStatement ps = connection
-					.prepareStatement("select * from loginform where email=? and password = ?");
-			ps.setString(1, userbean.getEmail());
-			ps.setString(2, userbean.getPassword());
-			ResultSet rs = ps.executeQuery();
-
-			System.out.println("Execute Statement :");
-			status = rs.next();
-			System.out.println("status: " + status);
-		} finally {
-			if (connection != null)
-				connection.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return status;
+		return "false";
 	}
 
 	public static int saveRegistration(UserBean userBean) {
@@ -100,7 +80,87 @@ public class BankDAO {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+
+		return status;
+	}
+	
+	public static List<UserBean> getAllAccount(String city) {
+		List<UserBean> list = new ArrayList<UserBean>();
+		try {
+			Connection con = BankDAO.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from addaccount where city = ?");
+			ps.setString(1, city);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				UserBean userBean = new UserBean();
+				userBean.setId(rs.getInt(1));
+				userBean.setName(rs.getString(2));
+				userBean.setEmail(rs.getString(3));
+				userBean.setCity(rs.getString(4));
+				userBean.setAccountnumber(rs.getInt(5));
+				list.add(userBean);
+			}
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public static UserBean getAccountID(int id) {
+		UserBean loginBean = new UserBean();
+		try {
+			Connection con = BankDAO.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from addaccount  where id = ? ");
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				loginBean.setId(rs.getInt(1));
+				loginBean.setName(rs.getString(2));
+				loginBean.setEmail(rs.getString(3));
+				loginBean.setCity(rs.getString(4));
+				loginBean.setAccountnumber(rs.getInt(6));
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return loginBean;
+	}
+
+	
+	public static int deleteAccount(int id) {
+		int status = 0;
+		try {
+			Connection con = BankDAO.getConnection();
+			PreparedStatement ps = con.prepareStatement("delete from addaccount where id = ?");
+			ps.setInt(1, id);
+			status = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return status;
 	}
 
+	public static int updateAccount(UserBean userBean) {
+		System.out.println("Account Id : " + userBean.getId());
+		int status = 0;
+		try {
+			Connection con = BankDAO.getConnection();
+			PreparedStatement preparetatement = con
+					.prepareStatement("update addaccount set name=?,email=?,city=?,account=? where id=?");
+			System.out.println("City Name" + userBean.getCity());
+			preparetatement.setInt(1, userBean.getId());
+			preparetatement.setString(2, userBean.getName());
+			preparetatement.setString(3, userBean.getEmail());
+			preparetatement.setString(4, userBean.getCity());
+			preparetatement.setInt(5, userBean.getAccountnumber());
+			status = preparetatement.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return status;
+	}
+	
+	
 }
