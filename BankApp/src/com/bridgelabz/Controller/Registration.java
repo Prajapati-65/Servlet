@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bridgelabz.BankDAO.BankDAO;
-import com.bridgelabz.Model.UserBean;
+import com.bridgelabz.Model.UserDetails;
 
 public class Registration extends HttpServlet {
 
@@ -18,19 +18,22 @@ public class Registration extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		String title = ("<br>" + "Your registration is successful...." + "</br>");
 		out.println(title);
+		
+		
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String confirmpassword = req.getParameter("confirmpassword");
 		String number = req.getParameter("mobilenumber");
-		UserBean userBean = new UserBean();
+		UserDetails user = new UserDetails();
 
-		userBean.setName(name);
-		userBean.setEmail(email);
-		userBean.setPassword(password);
-		userBean.setConfirmpassword(confirmpassword);
-		userBean.setMobilenumber(number);
-		if(BankDAO.saveRegistration(userBean) > 0)
+		user.setName(name);
+		user.setEmail(email);
+		user.setPassword(password);
+		user.setConfirmpassword(confirmpassword);
+		user.setMobilenumber(number);
+		
+		if(BankDAO.saveRegistration(user) > 0)
 		{	
 			out.print("<p>Record Saved Successfully</p>");
 			req.getRequestDispatcher("registrationform.jsp").include(req, resp);		

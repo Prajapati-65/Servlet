@@ -7,52 +7,17 @@
 <title>login</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/login.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-.btn-label {
-	position: relative;
-	left: -12px;
-	display: inline-block;
-	padding: 6px 12px;
-	background: rgba(0, 0, 0, 0.15);
-	border-radius: 3px 0 0 3px;
-}
-
-.btn-labeled {
-	padding-top: 0;
-	padding-bottom: 0;
-}
-
-.input-group {
-	margin-bottom: 10px;
-}
-
-.separator {
-	border-right: 1px solid #dfdfe0;
-}
-
-.facebook, .twitter {
-	min-width: 250px;
-}
-
-.facebook {
-	background-color: #354E84;
-	color: #fff;
-}
-
-.twitter {
-	background-color: #00A5E3;
-	color: #fff;
-}
-</style>
-<script type="text/javascript">
-	function validatelogin() {
+<script>
+	function validataLogin() {
 		var email = document.getElementById("email");
 		var filter = email.value;
+
 		var password = document.getElementById("password");
 		var password = password.value;
 
@@ -91,7 +56,7 @@
 							<div class="col-xs-6 col-sm-6 col-md-6 login-box">
 
 								<form method="post" name="submit" action="Login"
-									onclick="return validatelogin()" class="form-horizontal"
+									onclick="return validataLogin() " class="form-horizontal"
 									role="form">
 									<center>Using your account</center>
 									<div class="form-group">
@@ -105,7 +70,8 @@
 											placeholder="Enter your password" class="form-control">
 									</div>
 									<div class="form-group">
-										<button id="submit" type="submit" class="btn btn-success btn-block">Sign in.</button>
+										<button id="submit" type="submit"
+											class="btn btn-success btn-block">Sign in.</button>
 									</div>
 									<p>
 										. <a href="login.jsp">Forget your password?</a>

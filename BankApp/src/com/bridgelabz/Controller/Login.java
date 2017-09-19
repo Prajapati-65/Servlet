@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bridgelabz.BankDAO.BankDAO;
-import com.bridgelabz.Model.UserBean;
+import com.bridgelabz.Model.UserDetails;
 
 public class Login extends HttpServlet {
 
@@ -19,18 +19,24 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
+		
+		
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		UserBean userBean = new UserBean();
-		userBean.setEmail(email);
-		userBean.setPassword(password);
+		UserDetails user = new UserDetails();
+		user.setEmail(email);
+		user.setPassword(password);
+		
 		BankDAO bankdao = new BankDAO();
 		String name = bankdao.loginUser(email, password);
 		System.out.println(name);
+		
 		if (name != "false") 
 		{
 			HttpSession session = req.getSession();
 			session.setAttribute("name", name);
+			session.setAttribute("email", email);
+			session.setAttribute("email", password);
 			resp.sendRedirect("homepage.jsp");
 		} 
 		else {

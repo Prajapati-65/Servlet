@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.apache.tomcat.util.buf.UEncoder;
 
-import com.bridgelabz.Model.UserBean;
+import com.bridgelabz.Model.UserDetails;
 
 public class BankDAO {
 
@@ -20,8 +20,8 @@ public class BankDAO {
 			Class.forName("com.mysql.jdbc.Driver");
 			String dburl = "jdbc:mysql://localhost:3306/BankApp?user=root&password=password";
 			connection = DriverManager.getConnection(dburl);
-		} catch (Exception UserBean) {
-			System.out.println(UserBean);
+		} catch (Exception user) {
+			System.out.println(user);
 		}
 		return connection;
 	}
@@ -44,17 +44,17 @@ public class BankDAO {
 		return "false";
 	}
 
-	public static int saveRegistration(UserBean userBean) {
+	public static int saveRegistration(UserDetails user) {
 		int status = 0;
 		try {
 			Connection connection = BankDAO.getConnection();
 			String query = "insert into registration (name,email,password,confirmpassword,mobilenumber) values (?,?,?,?,?)";
 			PreparedStatement pstmt = connection.prepareStatement(query);
-			pstmt.setString(1, userBean.getName());
-			pstmt.setString(2, userBean.getEmail());
-			pstmt.setString(3, userBean.getPassword());
-			pstmt.setString(4, userBean.getConfirmpassword());
-			pstmt.setString(5, userBean.getMobilenumber());
+			pstmt.setString(1, user.getName());
+			pstmt.setString(2, user.getEmail());
+			pstmt.setString(3, user.getPassword());
+			pstmt.setString(4, user.getConfirmpassword());
+			pstmt.setString(5, user.getMobilenumber());
 			pstmt.executeUpdate();
 			connection.close();
 			pstmt.close();
@@ -64,17 +64,16 @@ public class BankDAO {
 		return status;
 	}
 
-	public static int saveAccountData(UserBean userBean) {
+	public static int saveAccountData(UserDetails user) {
 		int status = 0;
 		try {
 			Connection connection = BankDAO.getConnection();
 			PreparedStatement ps = connection
-					.prepareStatement("insert into addaccount (id,name,email,city,accountnumber) values(?,?,?,?,?)");
-			ps.setInt(1, userBean.getId());
-			ps.setString(2, userBean.getName());
-			ps.setString(3, userBean.getEmail());
-			ps.setString(4, userBean.getCity());
-			ps.setInt(5, userBean.getAccountnumber());
+					.prepareStatement("insert into addaccount (name,email,city,accountnumber) values(?,?,?,?)");
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getCity());
+			ps.setInt(4, user.getAccountnumber());
 			status = ps.executeUpdate();
 			connection.close();
 		} catch (Exception ex) {
@@ -84,21 +83,21 @@ public class BankDAO {
 		return status;
 	}
 	
-	public static List<UserBean> getAllAccount(String city) {
-		List<UserBean> list = new ArrayList<UserBean>();
+	public static List<UserDetails> getAllAccount(String city) {
+		List<UserDetails> list = new ArrayList<UserDetails>();
 		try {
 			Connection con = BankDAO.getConnection();
 			PreparedStatement ps = con.prepareStatement("select * from addaccount where city = ?");
 			ps.setString(1, city);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				UserBean userBean = new UserBean();
-				userBean.setId(rs.getInt(1));
-				userBean.setName(rs.getString(2));
-				userBean.setEmail(rs.getString(3));
-				userBean.setCity(rs.getString(4));
-				userBean.setAccountnumber(rs.getInt(5));
-				list.add(userBean);
+				UserDetails user = new UserDetails();
+				user.setId(rs.getInt(5));
+				user.setName(rs.getString(2));
+				user.setEmail(rs.getString(3));
+				user.setCity(rs.getString(4));
+				user.setAccountnumber(rs.getInt(5));
+				list.add(user);
 			}
 			con.close();
 		} catch (Exception e) {
@@ -106,54 +105,56 @@ public class BankDAO {
 		}
 		return list;
 	}
-
-	public static UserBean getAccountID(int id) {
-		UserBean loginBean = new UserBean();
-		try {
-			Connection con = BankDAO.getConnection();
-			PreparedStatement ps = con.prepareStatement("select * from addaccount  where id = ? ");
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
-				loginBean.setId(rs.getInt(1));
-				loginBean.setName(rs.getString(2));
-				loginBean.setEmail(rs.getString(3));
-				loginBean.setCity(rs.getString(4));
-				loginBean.setAccountnumber(rs.getInt(6));
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
-		return loginBean;
-	}
-
+	
+	
+	
 	
 	public static int deleteAccount(int id) {
+		System.out.println("hello delete");
 		int status = 0;
 		try {
 			Connection con = BankDAO.getConnection();
 			PreparedStatement ps = con.prepareStatement("delete from addaccount where id = ?");
 			ps.setInt(1, id);
-			status = ps.executeUpdate();
+			status = ps.executeUpdate();	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return status;
 	}
+	
+	
+	public static UserDetails getUserByEmail(String email) {
+		UserDetails user = new UserDetails();
+		try {
+			Connection con = BankDAO.getConnection();
+			PreparedStatement preparetatement = con
+					.prepareStatement("select * from addaccount where email = ?");
+			preparetatement.setString(1, email);
+			ResultSet rs =preparetatement.executeQuery();
+			if (rs.next()) {
+				user.setName(rs.getString(1));
+				user.setEmail(rs.getString(2));
+				user.setCity(rs.getString(3));
+				user.setAccountnumber(rs.getInt(4));
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return user;
+	}
 
-	public static int updateAccount(UserBean userBean) {
-		System.out.println("Account Id : " + userBean.getId());
+	
+	public static int updateAccount(UserDetails user) {
 		int status = 0;
 		try {
 			Connection con = BankDAO.getConnection();
 			PreparedStatement preparetatement = con
-					.prepareStatement("update addaccount set name=?,email=?,city=?,account=? where id=?");
-			System.out.println("City Name" + userBean.getCity());
-			preparetatement.setInt(1, userBean.getId());
-			preparetatement.setString(2, userBean.getName());
-			preparetatement.setString(3, userBean.getEmail());
-			preparetatement.setString(4, userBean.getCity());
-			preparetatement.setInt(5, userBean.getAccountnumber());
+					.prepareStatement("update addaccount set name=?,city=?,accountnumber=? where email=?");
+			preparetatement.setString(1, user.getName());
+			preparetatement.setString(2, user.getCity());
+			preparetatement.setInt(3, user.getAccountnumber());
+			preparetatement.setString(4, user.getEmail());
 			status = preparetatement.executeUpdate();
 
 		} catch (Exception ex) {

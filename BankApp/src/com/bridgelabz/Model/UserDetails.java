@@ -1,6 +1,6 @@
 package com.bridgelabz.Model;
 
-public class UserBean {
+public class UserDetails {
 
 	private int id, accountnumber;
 	private String name, email, city, password,confirmpassword,mobilenumber;
@@ -12,7 +12,6 @@ public class UserBean {
 	public void setConfirmpassword(String confirmpassword) {
 		this.confirmpassword = confirmpassword;
 	}
-
 
 	public String getMobilenumber() {
 		return mobilenumber;
@@ -75,10 +74,11 @@ public class UserBean {
 
 	@Override
 	public String toString() {
-		return "UserBean [id=" + id + ", accountnumber=" + accountnumber + ", name=" + name + ", email=" + email
+		return "UserDetails [id=" + id + ", accountnumber=" + accountnumber + ", name=" + name + ", email=" + email
 				+ ", city=" + city + ", password=" + password + ", confirmpassword=" + confirmpassword
 				+ ", mobilenumber=" + mobilenumber + "]";
 	}
+
 	
 	
 	

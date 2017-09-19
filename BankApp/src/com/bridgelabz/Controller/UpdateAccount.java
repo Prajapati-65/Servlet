@@ -16,10 +16,11 @@ public class UpdateAccount extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
-		String accountId = req.getParameter("id");
-		int id = Integer.parseInt(accountId);
-		out.println("Update Account");
-		//BankDAO.updateAccount(userBean);
+		String emailId = req.getParameter("email");
+		
+		
+		
+		
 		
 	}
 }

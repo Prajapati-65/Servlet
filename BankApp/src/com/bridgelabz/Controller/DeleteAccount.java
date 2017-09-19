@@ -13,16 +13,16 @@ import com.bridgelabz.BankDAO.BankDAO;
 public class DeleteAccount extends HttpServlet {
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("inside delete");
 		resp.setContentType("text/html");
 		PrintWriter out = resp.getWriter();
 		
-		String accountId = req.getParameter("id");
-		int id = Integer.parseInt(accountId);
-		
-		out.println("Inside delete servlet");
+		String accountID = req.getParameter("id");
+		System.out.println("inside "+accountID);
+		int id =Integer.parseInt(accountID);
 		BankDAO.deleteAccount(id);
-		
+		System.out.println("outside delete");
 	}
 }
 

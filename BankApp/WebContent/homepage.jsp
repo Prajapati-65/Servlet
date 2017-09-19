@@ -16,112 +16,98 @@
 
 </head>
 <body>
+
+	<div class="alert alert-success" style="background-color: skyblue;">
+	<label> <a><%=session.getAttribute("name")%></a></label> <a
+			id="button" href="LogoutAccount"
+			style="float: right; margin-top: -5px;" class="btn btn-primary btn-md">Logout</a>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<div class="panel panel-primary" style="padding-bottom: 500px;">
+			<div class="btn-group-vertical col-sm-3">
+				<button type="button" class="btn btn-primary btn-lg"
+					onclick="displayCityData('Bangalore')">Bangalore</button>
+				<br>
+				<button type="button" class="btn btn-primary btn-lg"
+					onclick="displayCityData('Mumbai')">Mumbai</button>
+				<br>
+				<button type="button" class="btn btn-primary btn-lg"
+					onclick="displayCityData('Delhi')">Delhi</button>
+			</div>
 
-					<div class="well" style="background-color: skyblue;">
-						<label><a><%=session.getAttribute("name")%></a></label> <a
-							id="button" href="LogoutAccount"
-							style="float: right; margin-top: -7px;"
-							class="btn btn-success btn-md">Logout</a>
-					</div>
+			<div>
+				<button type="button" class="btn btn-primary btn-lg"
+					data-toggle="modal" data-target="#myModal"
+					style="margin-top: 485px; float: right">+ Add</button>
+			</div>
 
-					<div class="btn-group-vertical col-sm-3">
-						<button type="button" class="btn btn-primary btn-lg"
-							onclick="displayCityData('Banglore')">Bangalore</button>
-						<br>
-						<button type="button" class="btn btn-primary btn-lg"
-							onclick="displayCityData('Mumbai')">Mumbai</button>
-						<br>
-						<button type="button" class="btn btn-primary btn-lg"
-							onclick="displayCityData('Delhi')">Delhi</button>
-					</div>
-
-					<div>
-						<button type="button" class="btn btn-success btn-lg"
-							data-toggle="modal" data-target="#myModal"
-							style="margin-top: 453px; float: right">+ Add</button>
-					</div>
-
-					<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Add Account</h4>
-								</div>
-								<form method="POST" action="AddAccountDetails" role="form">
-									<div class="form-group">
-										<label class="control-label" for="id">Enter the id</label> <input
-											id="id" name="id" type="text" class="form-control"
-											placeholder="Enter the id">
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="email">Enter the
-											name</label> <input id="name" name="name" type="text"
-											placeholder="Enter the name" class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="name">Enter the
-											email</label> <input id="email" name="email" type="email"
-											class="form-control" placeholder="Enter the email">
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="city">Select any
-											city</label>
-										<div>
-											<select name="city" class="form-control">
-												<option selected disabled>City</option>
-												<option value="Mumbai">Mumbai</option>
-												<option value="Delhi">Delhi</option>
-												<option value="Bangalore">Bangalore</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="acconut">Enter
-											account number</label> <input id="accountnumber" name="accountnumber"
-											type="text" placeholder="Enter account number"
-											class="form-control">
-									</div>
-
-									<div class="form-group">
-										<button id="submit" type="submit" name="submit"
-											class="btn btn-success">Add</button>
-
-
-										<button id="close" type="button" name="close"
-											class="btn btn-success om" data-dismiss="modal">Close</button>
-									</div>
-								</form>
-
-							</div>
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Add Account</h4>
 						</div>
-					</div>
+						<form method="POST" action="AddAccountDetails" role="form">
 
-					<div class="modal fade" id="cityModal" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header" id="city-title">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title"></h4>
-								</div>
-								<div class="modal-body" id="details-table"></div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
+							<div class="form-group">
+								<label class="control-label" for="email">Enter the name</label>
+								<input id="name" name="name" type="text"
+									placeholder="Enter the name" class="form-control">
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="name">Enter the email</label>
+								<input id="email" name="email" type="email" class="form-control"
+									placeholder="Enter the email">
+							</div>
+							<div class="form-group">
+								<label class="control-label" for="city">Select any city</label>
+								<div>
+									<select name="city" class="form-control">
+										<option selected disabled>City</option>
+										<option value="Mumbai">Mumbai</option>
+										<option value="Delhi">Delhi</option>
+										<option value="Bangalore">Bangalore</option>
+									</select>
 								</div>
 							</div>
+							<div class="form-group">
+								<label class="control-label" for="acconut">Enter account
+									number</label> <input id="accountnumber" name="accountnumber"
+									type="text" placeholder="Enter account number"
+									class="form-control">
+							</div>
+
+							<div class="form-group">
+								<button id="submit" type="submit" name="submit"
+									class="btn btn-success">Add</button>
+								<button id="close" type="button" name="close"
+									class="btn btn-success om" data-dismiss="modal">Close</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="cityModal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" id="city-title">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title"></h4>
+						</div>
+						
+						<div class="modal-body" id="details-table"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
-
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -133,34 +119,20 @@
 			console.log("inside javascript");
 			$.ajax({
 				type : 'post',
-				url : "AccountView",
+				url : 'AccountView',
 				data : {
 					city : city
 				},
 				success : function(result) {
 					console.log("ajax success");
 					console.log(result);
-					var data = "<table class='table table-striped'>"
-							+ "<thead >" + "<tr>" + "<th>Id</th>"
-							+ "<th>Name</th>" + "<th>Email</th>"
-							+ "<th>City</th>" + "<th>AccountNumber</th>"
-							+ "</tr>" + "</thead>" + "<tbody>";
-							
-					for ( var i in result) {
-						data = data + "<tr><td>" 
-								+ result[i].id + "</td><td>"
-								+ result[i].name + "</td><td>"
-								+ result[i].email + "</td><td>"
-								+ result[i].city + "</td><td>"
-								+ result[i].accountnumber + "</td></tr>";
-					}
-					data = data + "</tbody>" + "</table>"
-					$('#details-table').html(data);
+					$('#details-table').html(result);
 					$('#body-of-modal').html(result);
 					$('#cityModal').modal('show');
 				}
 			});
 		}
+		
 	</script>
 </body>
 </html>

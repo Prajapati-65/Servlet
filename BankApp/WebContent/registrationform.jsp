@@ -7,50 +7,11 @@
 <title>Registration page</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/registrationform.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<style type="text/css">
-
-form {
-	margin: 0px 10px;
-}
-
-body {
-	background: cyan;
-}
-
-h2 {
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-
-.p {
-	border: 1px dashed red;
-	padding: 10px;
-}
-
-.container {
-	max-width: 360px;
-}
-
-.divider {
-	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 5px;
-	background: cyan;
-}
-
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-</style>
 </head>
 <body>
 	<div class="container">

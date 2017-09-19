@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bridgelabz.BankDAO.BankDAO;
-import com.bridgelabz.Model.UserBean;
+import com.bridgelabz.Model.UserDetails;
 
 public class AccountView extends HttpServlet {
 
@@ -23,7 +23,7 @@ public class AccountView extends HttpServlet {
 		String city = req.getParameter("city");
 		PrintWriter printWriter = resp.getWriter();
 		printWriter.println("<h1>Account List</h1>");
-		List<UserBean> list = BankDAO.getAllAccount(city);
+		List<UserDetails> list = BankDAO.getAllAccount(city);
 		req.setAttribute("list", list);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("citydetails.jsp");
 		dispatcher.forward(req, resp);

@@ -49,16 +49,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DeleteAccount</display-name>
-    <servlet-name>DeleteAccount</servlet-name>
-    <servlet-class>com.bridgelabz.Controller.DeleteAccount</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteAccount</servlet-name>
-    <url-pattern>/DeleteAccount</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>AddAccount</display-name>
     <servlet-name>AddAccount</servlet-name>
     <servlet-class>com.bridgelabz.Controller.AddAccount</servlet-class>
@@ -126,5 +116,15 @@
   <servlet-mapping>
     <servlet-name>UpdateAccount</servlet-name>
     <url-pattern>/UpdateAccount</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteAccount</display-name>
+    <servlet-name>DeleteAccount</servlet-name>
+    <servlet-class>com.bridgelabz.Controller.DeleteAccount</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteAccount</servlet-name>
+    <url-pattern>/DeleteAccount</url-pattern>
   </servlet-mapping>
 </web-app>
