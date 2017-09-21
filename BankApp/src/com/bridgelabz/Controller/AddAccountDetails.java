@@ -1,16 +1,20 @@
 package com.bridgelabz.Controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bridgelabz.BankDAO.BankDAO;
 import com.bridgelabz.Model.UserDetails;
 
+//@WebServlet("/AddAccountDetails")
 public class AddAccountDetails extends HttpServlet {
 
 	@Override
@@ -32,7 +36,11 @@ public class AddAccountDetails extends HttpServlet {
 		user.setAccountnumber(accountNumber);
 		
 		if (BankDAO.saveAccountData(user) > 0) {
-			out.print("Record Saved Successfully");
+			HttpSession session = req.getSession();
+			session.setAttribute("name", name);
+			session.setAttribute("email", email);
+			session.setAttribute("city", city);
+			session.setAttribute("accountnumber", number);
 			resp.sendRedirect("homepage.jsp");
 
 		} else {

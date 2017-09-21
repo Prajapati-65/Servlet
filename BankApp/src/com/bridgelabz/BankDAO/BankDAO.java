@@ -48,13 +48,12 @@ public class BankDAO {
 		int status = 0;
 		try {
 			Connection connection = BankDAO.getConnection();
-			String query = "insert into registration (name,email,password,confirmpassword,mobilenumber) values (?,?,?,?,?)";
+			String query = "insert into registration (name,email,password,mobilenumber) values (?,?,?,?)";
 			PreparedStatement pstmt = connection.prepareStatement(query);
 			pstmt.setString(1, user.getName());
 			pstmt.setString(2, user.getEmail());
 			pstmt.setString(3, user.getPassword());
-			pstmt.setString(4, user.getConfirmpassword());
-			pstmt.setString(5, user.getMobilenumber());
+			pstmt.setString(4, user.getMobilenumber());
 			pstmt.executeUpdate();
 			connection.close();
 			pstmt.close();
@@ -106,44 +105,45 @@ public class BankDAO {
 		return list;
 	}
 	
-	
-	
-	
-	public static int deleteAccount(int id) {
-		System.out.println("hello delete");
+	public static int deleteAccount(String email) {
 		int status = 0;
 		try {
 			Connection con = BankDAO.getConnection();
-			PreparedStatement ps = con.prepareStatement("delete from addaccount where id = ?");
-			ps.setInt(1, id);
+			PreparedStatement ps = con.prepareStatement("delete from addaccount where email = ?");
+			ps.setString(1, email);
 			status = ps.executeUpdate();	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return status;
 	}
+
 	
-	
-	public static UserDetails getUserByEmail(String email) {
-		UserDetails user = new UserDetails();
+	public static int updateAccount1(int id) {
+		int status =0;
+		PreparedStatement preparetatement = null;
 		try {
 			Connection con = BankDAO.getConnection();
-			PreparedStatement preparetatement = con
-					.prepareStatement("select * from addaccount where email = ?");
-			preparetatement.setString(1, email);
+			preparetatement = con.prepareStatement("select * from addaccount where id = ?");
+			preparetatement.setInt(1, id);
 			ResultSet rs =preparetatement.executeQuery();
 			if (rs.next()) {
-				user.setName(rs.getString(1));
-				user.setEmail(rs.getString(2));
-				user.setCity(rs.getString(3));
-				user.setAccountnumber(rs.getInt(4));
+				String name=rs.getString("name");
+				String emailID=rs.getString("email");
+				String city=rs.getString("city");
+				int accountnumber=rs.getInt("accountnumber");
+				UserDetails user = new UserDetails();
+				user.setName(name);
+				user.setEmail(emailID);
+				user.setCity(city);
+				user.setAccountnumber(accountnumber);
+				preparetatement.close();
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return user;
+		return status;
 	}
-
 	
 	public static int updateAccount(UserDetails user) {
 		int status = 0;
@@ -162,6 +162,7 @@ public class BankDAO {
 		}
 		return status;
 	}
+
 	
 	
 }

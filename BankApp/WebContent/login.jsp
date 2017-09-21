@@ -14,22 +14,22 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
-	function validataLogin() {
-		var email = document.getElementById("email");
-		var filter = email.value;
 
-		var password = document.getElementById("password");
-		var password = password.value;
-
-		if (!filter.test(email.value)) {
-			alert("Enter valid Email Id");
+	function validateLogin() {
+		var email = document.getElementById("email").value;
+		var regEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		if (!regEx.test(email)) {
+			alert("Incorrect Email Id")
 			return false;
 		}
-		if (password == "" || password == null) {
-			alert("Enter Password correctly");
+		var password = document.getElementById("password").value;
+		if (password.length < 8) {
+			alert("Password must be at least 8 characters long");
 			return false;
 		}
+		return true;
 	}
+	
 </script>
 </head>
 <body>
@@ -56,7 +56,7 @@
 							<div class="col-xs-6 col-sm-6 col-md-6 login-box">
 
 								<form method="post" name="submit" action="Login"
-									onclick="return validataLogin() " class="form-horizontal"
+									 class="form-horizontal"
 									role="form">
 									<center>Using your account</center>
 									<div class="form-group">
@@ -70,13 +70,12 @@
 											placeholder="Enter your password" class="form-control">
 									</div>
 									<div class="form-group">
-										<button id="submit" type="submit"
-											class="btn btn-success btn-block">Sign in.</button>
+										<button id="submit" type="submit" onClick="return validateLogin()" class="btn btn-success btn-block">Sign in.</button>
 									</div>
 									<p>
 										. <a href="login.jsp">Forget your password?</a>
 									</p>
-									Don't have an account? <a href="registrationform.jsp">Sign
+									Don't have an account? <a  href="registrationform.jsp">Sign
 										up here</a>
 								</form>
 							</div>

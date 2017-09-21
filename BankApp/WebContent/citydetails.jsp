@@ -7,52 +7,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
-<script type="text/javascript">
-
-
-var deleteData = function() {
-	var id;
-	console.log("Inside the delete");
-	email = $("#mail").val();
-	console.log(id);
-	$.ajax({
-		url : 'DeleteAccount',
-		type : 'GET',
-		success : function(data) {
-			$("#bodyId").html(data);
-		},
-		error : function() {
-			alert("error Delete data");
-		}
-	});
-}
-
-/* 
-
-function deleteData(id) {
-	console.log("inside javascript");
-	$.ajax({
-		url : 'DeleteAccount',
-		type : 'GET',
-		data : {
-			id : id
-		},
-		success : function(result) {
-			display(id)
-			$('#deleteAccount').modal('show');
-		}
-	});
-}
- */
-</script>
-
-
-
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 	<%
 		List<UserDetails> list = (List<UserDetails>) request.getAttribute("list");
@@ -74,11 +33,10 @@ function deleteData(id) {
 		%>
 			<tr>
 				<td><a class="name"><%=user.getName()%></a></td>
-				<td><a class="name"><%=user.getEmail()%></a></td>
-				<td><a class="name"><%=user.getAccountnumber()%></a></td>
-				<td><button type="button" name="edit" class="btn btn-success">Edit</button></td>
-				<td><button type="submit" onclick="return deleteData(<%=user.getId()%>)"  class="btn btn-success">Delete</button></td>
-				
+				<td><a class="email"><%=user.getEmail()%></a></td>
+				<td><a class="accountnumber"><%=user.getAccountnumber()%></a></td>
+				<td><button type="button" name="edit" onclick="return updateAccount('<%=user.getEmail()%>')" data-toggle="modal" data-target="#myModal"  class="btn btn-success">Edit</button></td>
+				<td><button type="submit" onclick="return deleteAccount('<%=user.getEmail()%>')"  class="btn btn-success">Delete</button></td>
 			</tr>		
 		<%
 			}
